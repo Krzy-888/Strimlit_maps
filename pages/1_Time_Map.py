@@ -6,10 +6,9 @@ import streamlit as st
 
 #Title and sidebars
 st.set_page_config(
-    page_title="Maps View",
+    page_title="Time Maps View",
     page_icon='🗺️'
 )
-st.sidebar()
 
 #Inputs
 st.text("**First Time Interval**")
