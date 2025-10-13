@@ -27,5 +27,6 @@ if lat and lon:
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
             """+f"""
         L.marker([{lat}, {lon}]).addTo(map)
-</script>
+        </script>
         """
+        st.components.v1.html(st_map, height=520)
