@@ -20,7 +20,7 @@ if lat and lon:
         st_data = st_folium(st_map)
     if map_type == 'Leaflet':
         st_map = """
-        <div id="map" style="height: 100%;"></div>
+        <div id="map" style="height: 500px;"></div>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script>
         var map = L.map('map');
