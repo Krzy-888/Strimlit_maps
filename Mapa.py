@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import folium
-from streamlit_folium import st_folium as fol
+#from streamlit_folium import st_folium as fol
 
 lat = st.number_input('lat:')
 lon = st.number_input('lon')
@@ -16,4 +16,4 @@ if lat and lon:
         punkt = {"lat": lat, "lon": lon}
         df_simple = pd.DataFrame([punkt])
         map = folium.Map()
-        folium.Marker([lat,lon].add(map))
+        folium.Marker([lat,lon]).add(map)
