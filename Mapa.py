@@ -16,7 +16,7 @@ if lat and lon:
         punkt = {"lat": lat, "lon": lon}
         df_simple = pd.DataFrame([punkt])
         st_map = folium.Map()
-        folium.Marker([lat,lon]).add_to(mast_mapp)
+        folium.Marker([lat,lon]).add_to(st_map)
         st_data = st_folium(st_map)
     if map_type == 'Leaflet':
         st_map = """
