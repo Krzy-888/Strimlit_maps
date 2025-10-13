@@ -21,9 +21,10 @@ if lat and lon:
     if map_type == 'Leaflet':
         st_map = """
         <div id="map" style="height: 500px;"></div>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script>
-        var map = L.map('map').setView([0,0],5;
+        var map = L.map('map').setView([0,0],5);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
             """+f"""
         L.marker([{lat}, {lon}]).addTo(map)
