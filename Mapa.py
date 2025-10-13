@@ -9,7 +9,7 @@ st.set_page_config(
     page_title="Maps View",
     page_icon='🗺️'
 )
-st.sidebar
+st.sidebar.title("**Navigation**")
 
 #Inputs
 lat = st.number_input('lat:')
