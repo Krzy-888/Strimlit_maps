@@ -1,12 +1,23 @@
+#comments
 import streamlit as st
 import pandas as pd
 import folium
 from streamlit_folium import st_folium 
 
+#Title and sidebars
+st.set_page_config(
+    page_title="Maps View",
+    page_icon='🗺️'
+)
+st.sidebar()
+
+#Inputs
 lat = st.number_input('lat:')
 lon = st.number_input('lon')
 Options = ['Stremlit', 'Folium', 'Leaflet']
 map_type = st.selectbox("**Select type:**",Options)
+
+#Maps visualizations
 if lat and lon:
     if map_type == 'Stremlit':
         punkt = {"lat": lat, "lon": lon}
