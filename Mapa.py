@@ -23,7 +23,7 @@ if lat and lon:
         <div id="map" style="height: 500px;"></div>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script>
-        var map = L.map('map').setView([0,0],1);
+        var map = L.map('map').setView([0,0],5;
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
             """+f"""
         L.marker([{lat}, {lon}]).addTo(map)
