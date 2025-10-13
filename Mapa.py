@@ -6,15 +6,26 @@ from streamlit_folium import st_folium
 lat = st.number_input('lat:')
 lon = st.number_input('lon')
 Options = ['Stremlit', 'Folium', 'Leaflet']
-GenType = st.selectbox("**Select type:**",Options)
+map_type = st.selectbox("**Select type:**",Options)
 if lat and lon:
-    if GenType == 'Stremlit':
+    if map_type == 'Stremlit':
         punkt = {"lat": lat, "lon": lon}
         df_simple = pd.DataFrame([punkt])
-        st.map(df_simple)  
-    if GenType == 'Folium':
+        st_map = st.map(df_simple)  
+    if map_type == 'Folium':
         punkt = {"lat": lat, "lon": lon}
         df_simple = pd.DataFrame([punkt])
-        map = folium.Map()
-        folium.Marker([lat,lon]).add_to(map)
-        st_data = st_folium(map)
+        st_map = folium.Map()
+        folium.Marker([lat,lon]).add_to(mast_mapp)
+        st_data = st_folium(st_map)
+    if map_type == 'Leaflet':
+        st_map = """
+        <div id="map" style="height: 100%;"></div>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script>
+        var map = L.map('map');
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            """+f"""
+        L.marker([{lat}, {lon}]).addTo(map)
+</script>
+        """
