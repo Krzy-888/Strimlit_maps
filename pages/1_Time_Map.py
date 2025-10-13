@@ -18,16 +18,16 @@ with col1:
 with col2:
     lon_1 = st.number_input('lon')
 st.text("**Second Time Interval**")
-col1, col2 = st.columns(2)
-with col1:
+col3, col4 = st.columns(2)
+with col3:
     lat_2 = st.number_input('lat:')
-with col2:
+with col4:
     lon_2 = st.number_input('lon')
 st.text("**Third Time Interval**")
-col1, col2 = st.columns(2)
-with col1:
+col5, col6 = st.columns(2)
+with col5:
     lat_3 = st.number_input('lat:')
-with col2:
+with col6:
     lon_3 = st.number_input('lon')
 Options = ['Stremlit', 'Folium', 'Leaflet']
 map_type = st.selectbox("**Select type:**",Options)
