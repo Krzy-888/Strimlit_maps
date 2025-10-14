@@ -34,23 +34,26 @@ map_type = st.selectbox("**Select type:**",Options)
 if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
     if map_type == 'Pydeck':
         #Inputs transformation
-        point = {"lat": [lat_1, lat_2, lat_3],"lon": [lon_1, lon_2, lon_3], "time":[1, 2, 3]}
-        df_simple = pd.DataFrame(point)
+        point = {
+            "path": [[lon_1, lat_1], [lon_2, lat_2], [lon_3, lat_3]],
+            "time": [0, 1, 2]
+        }
+        df_simple = pd.DataFrame([point])
         
         #Time slider
-        t = st.slider("Czas", 0, int(df_simple["time"].max()), 0) 
+        time_slide = st.slider("Time", 0, int(df_simple["time"].max()), 0) 
         #Layer properties
         layer = pdk.Layer(
         "TripsLayer",
         data=df_simple,
-        get_path=["lon", "lat"],  
+        get_path="path",  
         get_color=[0, 0, 255],
         opacity=0.8,
         width_min_pixels=5,
         rounded=True,
         trail_length=600,
         get_timestamp="time",
-        current_time =t
+        current_time =time_slide
         )
         view_state = pdk.ViewState(latitude=0, longitude=0, zoom=0)
         #Map properties
