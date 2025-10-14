@@ -41,7 +41,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         df_simple = pd.DataFrame([point])
         
         #Time slider
-        time_slide = st.slider("Time", 0, 3, 0) 
+        time_slide = st.slider("Time", 1, 3, 1) 
         #Layer properties
         layer = pdk.Layer(
         "TripsLayer",
@@ -52,7 +52,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         width_min_pixels=5,
         rounded=True,
         trail_length=1,
-        get_timestamp="time",
+        get_timestamps="time",
         current_time =time_slide
         )
         view_state = pdk.ViewState(latitude=0, longitude=0, zoom=0)
