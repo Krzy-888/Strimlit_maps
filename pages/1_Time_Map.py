@@ -37,6 +37,8 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         punkt = {"lat": [lat_1, lat_2, lat_3],"lon": [lon_1, lon_2, lon_3], "time":[1, 2, 3]}
         df_simple = pd.DataFrame([punkt])
         
+        #Time slider
+        t = st.slider("Czas", 0, int(df_simple["time"].max()), 0) 
         #Layer properties
         layer = pdk.Layer(
         "TripsLayer",
@@ -48,13 +50,14 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         rounded=True,
         trail_length=600,
         get_timestamp="time",
+        current_time =t
         )
-        
+        view_state = pdk.ViewState(latitude=0, longitude=0, zoom=0)
         #Map properties
         st_map = pdk.Deck(
         layers=[layer],
         map_style="mapbox://styles/mapbox/light-v10",
-        tooltip={"text": "lon: {lon}, lat: {lat}"}
+        initial_view_state=view_state
         )
         st.pydeck_chart(st_map) 
 
