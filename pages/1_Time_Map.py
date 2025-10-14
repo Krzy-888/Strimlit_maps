@@ -59,7 +59,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         #Map properties
         st_map = pdk.Deck(
         layers=[layer],
-        map_style="mapbox://styles/mapbox/light-v10",
+        map_style="dark",
         initial_view_state=view_state
         )
         st.pydeck_chart(st_map) 
