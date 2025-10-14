@@ -51,7 +51,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         opacity=0.8,
         width_min_pixels=5,
         rounded=True,
-        trail_length=600,
+        trail_length=1,
         get_timestamp="time",
         current_time =time_slide
         )
