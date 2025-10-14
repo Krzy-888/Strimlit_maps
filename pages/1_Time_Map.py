@@ -41,7 +41,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         df_simple = pd.DataFrame([point])
         
         #Time slider
-        time_slide = st.slider("Time", 1, 3, 1) 
+        time_slide = st.slider("Time", 0, 3, 0) 
         #Layer properties
         layer = pdk.Layer(
         "TripsLayer",
