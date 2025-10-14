@@ -1,4 +1,4 @@
-streamlit>=1.10.0
 folium
 streamlit-folium
 pandas
+pydeck
