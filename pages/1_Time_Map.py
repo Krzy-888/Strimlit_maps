@@ -9,6 +9,8 @@ st.set_page_config(
     page_title="Time Maps View",
     page_icon='🗺️'
 )
+#Functions 
+
 
 #Inputs
 st.text("**First Time Interval**")
@@ -41,7 +43,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         df_simple = pd.DataFrame([point])
         
         #Time slider
-        time_slide = st.slider("Time", 0, 3, 0) 
+        time_slide = st.slider("Time:", 0, 3, 0) 
         #Layer properties
         layer = pdk.Layer(
         "TripsLayer",
@@ -70,6 +72,19 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
             "time": [0, 1, 2]
         }
         df_simple = pd.DataFrame(point)
-        st.text(df_simple)
+        time_slide = st.slider("Time:", 0, 2, 0)
+        st_map = folium.Map()
+        folium.PolyLine(list(zip(df_simple["lat"], df_simple["lon"])),
+                color="blue", weight=3, opacity=0.6).add_to(st_map)
+        current = df_simple.iloc[time_slide]
+        folium.CircleMarker(
+            location=[current["lat"], current["lon"]],
+            radius=8,
+            color="blue",
+            fill=True,
+            fill_color="blue",
+            popup=f"time: {current['time']}"
+        ).add_to(st_map)
+        st_data = st_folium(st_map)
 #Maps visualizations
 #Comming soon!!!
