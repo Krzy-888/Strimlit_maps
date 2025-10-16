@@ -69,7 +69,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
             "lat": [lat_1, lat_2, lat_3],
             "time": [0, 1, 2]
         }
-        df_simple = pd.DataFrame([point])
+        df_simple = pd.DataFrame(point)
         st.text(df_simple)
 #Maps visualizations
 #Comming soon!!!
