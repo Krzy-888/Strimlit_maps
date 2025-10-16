@@ -63,6 +63,13 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
         initial_view_state=view_state
         )
         st.pydeck_chart(st_map) 
-
+    if map_type == 'Folium':
+        point = {
+            "lon":[lon_1, lon_2, lon_3],
+            "lat": [lat_1, lat_2, lat_3],
+            "time": [0, 1, 2]
+        }
+        df_simple = pd.DataFrame([point])
+        print(df_simple)
 #Maps visualizations
 #Comming soon!!!
