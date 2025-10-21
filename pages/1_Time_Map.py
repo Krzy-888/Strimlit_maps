@@ -127,7 +127,7 @@ if all([lat_1, lon_1, lat_2, lon_2, lat_3, lon_3]):
 
             <script>
             var map = L.map('map').setView([0,0],0);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}').addTo(map);
 
             """+f"""var points = {samples_str};"""+"""
             var marker = L.circleMarker(points[0], {color: 'red', radius: 8}).addTo(map);
