@@ -1,8 +1,8 @@
 #comments
 import streamlit as st
 import pandas as pd
-import folium
-from streamlit_folium import st_folium 
+#import folium
+#from streamlit_folium import st_folium 
 
 #Title and sidebars
 st.set_page_config(
